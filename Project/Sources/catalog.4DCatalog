@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="Select" uuid="EAB434FFD8564A718DFBB532DE981D64" collation_locale="fr">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="People" uuid="7AD1B60593F24BF1819874640309820F" id="1" leave_tag_on_delete="true">
+		<field name="id" uuid="BA4B7C3C351A460F8D57035D40F6441A" type="5" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="first_name" uuid="39E497BBACA44EA4B7F073437C73E674" type="10" limiting_length="80" id="2"/>
+		<field name="last_name" uuid="B4DF23E16C6A49C693814B41AF2716AA" type="10" limiting_length="80" id="3"/>
+		<field name="email" uuid="B0B55C5FC7454E31856FB3E9722F4FBD" type="10" limiting_length="255" id="4"/>
+		<field name="birthday" uuid="E229F7F8A45146D6A953594FEFFA9D57" type="8" id="5"/>
+		<field name="country" uuid="CE69B33C02EA411992722F6656F777E8" type="10" limiting_length="80" id="6"/>
+		<field name="flag" uuid="DF38B5E90D254EE19425B36FA7ABA5A9" type="12" never_null="true" id="7"/>
+		<field name="face" uuid="D8F6B6B19CB24C7CBD738F5E5ECF88D0" type="12" never_null="true" id="8"/>
+		<field name="gender" uuid="1EA157F41C8946D687F75D5560D1DE78" type="10" limiting_length="255" never_null="true" id="9"/>
+		<primary_key field_name="id" field_uuid="BA4B7C3C351A460F8D57035D40F6441A"/>
+		<table_extra input_form="Detail" output_form="List">
+			<editor_table_info displayable_fields_count="14">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="40" width="236.21875" height="349.47265625"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Flags" uuid="E9E51B04617A4885A2C6365F668C501A" id="2" prevent_journaling="true">
+		<field name="ID" uuid="CF6F75CC312447D3AB3D80EAA5F259A7" type="4" unique="true" autosequence="true" autogenerate="true" not_null="true" id="1"/>
+		<field name="Code" uuid="8F2A63B44D6E40C3BFE1404F4F5EE6B5" type="10" limiting_length="2" never_null="true" id="2"/>
+		<field name="icon" uuid="DFC451B37B674C1A8FFD4F01E6BB67D4" type="12" never_null="true" id="3"/>
+		<primary_key field_name="ID" field_uuid="CF6F75CC312447D3AB3D80EAA5F259A7"/>
+		<table_extra input_form="Input" output_form="Output">
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="422.66015625" top="80.859375" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<relation uuid="1A30759EAED2413D882EE2C9A44D9B2E" name_Nto1="Link_1" name_1toN="Link_1_return" auto_load_Nto1="true" auto_load_1toN="false" foreign_key="false" state="1">
+		<related_field kind="source">
+			<field_ref uuid="CE69B33C02EA411992722F6656F777E8" name="country">
+				<table_ref uuid="7AD1B60593F24BF1819874640309820F" name="People"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="8F2A63B44D6E40C3BFE1404F4F5EE6B5" name="Code">
+				<table_ref uuid="E9E51B04617A4885A2C6365F668C501A" name="Flags"/>
+			</field_ref>
+		</related_field>
+		<relation_extra entry_wildchar="false" entry_create="false" choice_field="0" entry_autofill="false">
+			<editor_relation_info via_point_x="-1" via_point_y="-1" prefers_left="false" smartlink="true">
+				<color red="255" green="255" blue="255" alpha="0"/>
+			</editor_relation_info>
+		</relation_extra>
+	</relation>
+	<index kind="regular" unique_keys="true" uuid="2B22AB28EAF647B7A28E688B882ECE5D" type="1">
+		<field_ref uuid="CF6F75CC312447D3AB3D80EAA5F259A7" name="ID">
+			<table_ref uuid="E9E51B04617A4885A2C6365F668C501A" name="Flags"/>
+		</field_ref>
+	</index>
+	<index kind="regular" name="idx_name" uuid="42B2E26E2139444B98D61375D292A09F" type="7">
+		<field_ref uuid="B4DF23E16C6A49C693814B41AF2716AA" name="last_name">
+			<table_ref uuid="7AD1B60593F24BF1819874640309820F" name="People"/>
+		</field_ref>
+	</index>
+	<index kind="regular" uuid="5F6E6D345F1748A6B2C8671C62259900" type="1">
+		<field_ref uuid="8F2A63B44D6E40C3BFE1404F4F5EE6B5" name="Code">
+			<table_ref uuid="E9E51B04617A4885A2C6365F668C501A" name="Flags"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" name="thekey" uuid="8C81EA179F9E49648998E88CA063F70D" type="7">
+		<field_ref uuid="BA4B7C3C351A460F8D57035D40F6441A" name="id">
+			<table_ref uuid="7AD1B60593F24BF1819874640309820F" name="People"/>
+		</field_ref>
+	</index>
+	<index kind="regular" name="modulekey" uuid="94463341B7AB4AA2BA8253857DCC6AD4" type="7">
+		<field_ref uuid="39E497BBACA44EA4B7F073437C73E674" name="first_name">
+			<table_ref uuid="7AD1B60593F24BF1819874640309820F" name="People"/>
+		</field_ref>
+	</index>
+	<base_extra package_name="Select v17" structure_file_name="Select" data_file_path=":Select.4DD" ppc_code_stamp="163" __stringCompHash="icu:63.1.0" __keywordBuildingHash="icu:63.1.0">
+		<temp_folder folder_selector="data"/>
+		<journal_file journal_file_enabled="true"/>
+	</base_extra>
+</base>

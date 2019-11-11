@@ -1,0 +1,76 @@
+﻿{
+	"destination": "detailScreen",
+	"rightMargin": 19,
+	"bottomMargin": 20,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onCloseBox"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "595pt",
+		"paperHeight": "842pt"
+	},
+	"pages": [
+		null,
+		{
+			"objects": {
+				"Done": {
+					"type": "button",
+					"top": 397,
+					"left": 575,
+					"width": 85,
+					"height": 22,
+					"action": "cancel",
+					"text": "Done",
+					"defaultButton": true,
+					"events": [
+						"onClick"
+					]
+				},
+				"Load": {
+					"type": "button",
+					"top": 32,
+					"left": 28,
+					"width": 70,
+					"height": 22,
+					"text": "Load",
+					"method": "ObjectMethods/Load.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Row Height": {
+					"type": "input",
+					"top": 37,
+					"left": 208,
+					"width": 100,
+					"height": 17,
+					"dataSourceTypeHint": "number",
+					"contextMenu": "none",
+					"placeholder": "min 19; max 256",
+					"min": 19,
+					"max": 259,
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Text": {
+					"type": "text",
+					"top": 37,
+					"left": 123,
+					"width": 93,
+					"height": 17,
+					"text": "Row Height:"
+				}
+			}
+		}
+	]
+}

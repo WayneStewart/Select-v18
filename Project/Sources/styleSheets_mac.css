@@ -1,0 +1,15 @@
+.Default {
+	font-family: Lucida Grande;
+	font-size: 13px;
+}
+
+.Mssg_LargeLabel {
+	font-family: System Font;
+	font-size: 13px;
+}
+
+.Mssg_SmallLabel {
+	font-family: System Font;
+	font-size: 11px;
+}
+

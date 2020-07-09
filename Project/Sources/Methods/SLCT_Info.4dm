@@ -24,7 +24,7 @@ SLCT_Init
 
 Case of 
 	: ($request_t="version")
-		$reply_t:="17.0.4"
+		$reply_t:="17.0.5"
 		
 	: ($request_t="name")
 		$reply_t:="Select"

@@ -16,7 +16,8 @@ C_LONGINT:C283($bottom_i;$ColumnNumber_i;$ColumnWidth_i;$CurrentRecord_i;$Curren
 C_LONGINT:C283($TableNumber_i;$top_i;$WindowWidth_i)
 C_POINTER:C301($ColumnVariable_ptr;$HeaderVariable_ptr;$Table_ptr)
 C_TEXT:C284($ColumnHeaderText_t;$ColumnName_t;$ColumWidths_t;$HeaderName_t)
-
+C_COLLECTION:C1488($Columns_c)
+C_OBJECT:C1216($col_o)
 
   //  Make certain the component is initialised
 SLCT_Init 
@@ -25,13 +26,13 @@ SLCT_Init
   // ----------------------------------------------------
   //  Assign the local variables
   // ----------------------------------------------------
-$Table_ptr:=SLCT_Table_ptr
+$Table_ptr:=Slct.tablePointer
 $TableNumber_i:=Table:C252($Table_ptr)
 
   // ----------------------------------------------------
   //  Write the labels
   // ----------------------------------------------------
-If (Length:C16(SLCT_Text1_t)=0)
+If (Length:C16(Slct.mainText)=0)
 	SLCT_SetFormText 
 End if 
 
@@ -40,40 +41,30 @@ End if
   // ----------------------------------------------------
 Form:C1466.TypeAheadString:=""
 
-  // ----------------------------------------------------
-  //  Localise the button text
-  // ----------------------------------------------------
-
-  // Modified by: Wayne Stewart (2/12/08)
-  //  No longer used => xliff commands used instead
-
-  //Fnd_Gen_ButtonText (->SLCT_NewButton_i;Fnd_Gen_GetString ("Fnd_Slct";"NewBttn");Align left ;->SLCT_FindButton_i)
-  //Fnd_Gen_ButtonText (->SLCT_FindButton_i;Fnd_Gen_GetString ("Fnd_Slct";"FindBttn");Align left )
-  //Fnd_Gen_ButtonText (->SLCT_ChooseButton_i;Fnd_Gen_GetString ("Fnd_Slct";"ChooseBttn");Align right ;->SLCT_CancelButton_i)
-  //Fnd_Gen_ButtonText (->SLCT_CancelButton_i;Fnd_Gen_GetString ("Fnd_Slct";"CancelBttn");Align right )
-  //Fnd_Gen_ButtonText (->SLCT_Size_CopyButton_i;Fnd_Gen_GetString ("Fnd_Slct";"CopyBttn");Align left )
 
   // ----------------------------------------------------
   //  Show or Hide the buttons
   // ----------------------------------------------------
+
 OBJECT SET VISIBLE:C603(*;"SLCT_NewButton_i";SLCT_Button ("New"))
-OBJECT SET VISIBLE:C603(SLCT_FindButton_i;SLCT_Button ("Search"))
+OBJECT SET VISIBLE:C603(*;"SLCT_FindButton_i";SLCT_Button ("Search"))
 
 If ((Not:C34(SLCT_Button ("New"))) & (SLCT_Button ("Search")))
 	
-	OBJECT GET COORDINATES:C663(SLCT_FindButton_i;$left_i;$top_i;$right_i;$bottom_i)
+	OBJECT GET COORDINATES:C663(*;"SLCT_FindButton_i";$left_i;$top_i;$right_i;$bottom_i)
 	$Right_i:=$right_i-$left_i  //  Actually this is now the width
 	$left_i:=20  //  New button position
 	$top_i:=310
 	$bottom_i:=330
 	$right_i:=$left_i+$Right_i
-	OBJECT MOVE:C664(SLCT_FindButton_i;$left_i;$top_i;$right_i;$bottom_i;*)
+	
+	OBJECT MOVE:C664(*;"SLCT_FindButton_i";$left_i;$top_i;$right_i;$bottom_i;*)
 End if 
 
 If (Macintosh option down:C545) | (Is compiled mode:C492(*)) | (SLCT_HideControls )
-	OBJECT SET VISIBLE:C603(SLCT_Size_CopyButton_i;False:C215)  //  Make them invisible
+	OBJECT SET VISIBLE:C603(*;"SLCT_Size_CopyButton_i";False:C215)  //  Make them invisible
 Else 
-	OBJECT SET VISIBLE:C603(SLCT_Size_CopyButton_i;True:C214)
+	OBJECT SET VISIBLE:C603(*;"SLCT_Size_CopyButton_i";True:C214)
 End if 
 
 SLCT_DisplayIcon 
@@ -88,8 +79,8 @@ $NumberOfColumns_i:=Size of array:C274(SLCT_Arrays_aptr)
 For ($ColumnNumber_i;1;$NumberOfColumns_i)
 	$ColumnVariable_ptr:=SLCT_Arrays_aptr{$ColumnNumber_i}
 	$ColumnName_t:=SLCT_ColumnNames_at{$ColumnNumber_i}
-	$HeaderVariable_ptr:=SLCT_ColHeaders_aptr{$ColumnNumber_i}
 	$HeaderName_t:=SLCT_HeaderNames_at{$ColumnNumber_i}
+	$HeaderVariable_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;$HeaderName_t)
 	LISTBOX INSERT COLUMN:C829(SLCT_ListBox_ab;$ColumnNumber_i;$ColumnName_t;$ColumnVariable_ptr->;$HeaderName_t;$HeaderVariable_ptr->)
 	
 	If ($ColumnNumber_i=1)
@@ -201,3 +192,18 @@ Else
 End if 
 
 SLCT_RowControl_Init (Size of array:C274(SLCT_ListBox_ab))
+
+If (slctConfig#Null:C1517)
+	
+	$Columns_c:=slctConfig.columns
+	For each ($col_o;$Columns_c)
+		$ColumnName_t:=$col_o.columnName
+		LISTBOX MOVE COLUMN:C1274(*;$col_o.columnName;$col_o.columnNumber)
+		LISTBOX SET COLUMN WIDTH:C833(*;$col_o.columnName;$col_o.columnWidth)
+		
+	End for each 
+	
+	
+	slctConfig:=Null:C1517  //  Read it and delete it
+	
+End if 

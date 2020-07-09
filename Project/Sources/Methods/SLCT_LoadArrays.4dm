@@ -24,7 +24,7 @@ C_POINTER:C301($tp)
   // ----------------------------------------------------
 
 SET AUTOMATIC RELATIONS:C310(True:C214;False:C215)
-$tp:=SLCT_Table_ptr
+$tp:=Slct.tablePointer
 $TableNumber_i:=Table:C252($tp)
 $NumberOfColumns_i:=Size of array:C274(SLCT_Fields_aptr)
 ARRAY POINTER:C280($afp;$NumberOfColumns_i)

@@ -1,6 +1,6 @@
 //%attributes = {"invisible":true,"shared":true}
   // ----------------------------------------------------
-  // Project Method: SLCT_HideControls (Hide) --> Boolean
+  // Project Method: SLCT_hideControls (Hide) --> Boolean
 
   // Pass True to hide the developer controls
 
@@ -21,14 +21,14 @@ SLCT_Init
 C_BOOLEAN:C305($1;$0)
 
 Case of 
-	: (Count parameters:C259=1)
-		Slct.HideControls:=$1
-		$0:=Slct.HideControls
-		
-	: (Slct.HideControls=Null:C1517)
+	: (Slct.hideControls=Null:C1517)
 		$0:=False:C215
 		
+	: (Count parameters:C259=1)
+		Slct.hideControls:=$1
+		$0:=Slct.hideControls
+		
 	Else 
-		$0:=Slct.HideControls
+		$0:=Slct.hideControls
 		
 End case 

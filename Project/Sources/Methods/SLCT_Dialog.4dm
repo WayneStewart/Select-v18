@@ -24,11 +24,10 @@ End if
 
 SLCT_Init 
 
-C_OBJECT:C1216($Form;$Config_o)
+C_OBJECT:C1216($Form)
 
 $0:=No current record:K29:2
 
-$Config_o:=SLCT_Configuration 
 
 
 If (Slct.windowWidth=Null:C1517)
@@ -41,8 +40,19 @@ Else
 	End if 
 End if 
 
+If (slctConfig#Null:C1517)
+	
+	
+	Slct.windowWidth:=slctConfig.windowRight-slctConfig.windowLeft
+	Slct.windowHeight:=slctConfig.windowBottom-slctConfig.windowTop
+	
+	  //slctConfig:=Null  //  Don't delete it just yet
+	
+End if 
+
 $width_i:=Slct.windowWidth
 $height_i:=Slct.windowHeight
+
 
 If (SLCT_RunningInFoundation )
 	EXECUTE METHOD:C1007("Fnd_Wnd_Type";$WindowType_i)
@@ -75,7 +85,7 @@ Else
 	If (Is Windows:C1573)
 		$WindowType_i:=Modal form dialog box:K39:7
 	Else 
-		$WindowType_i:=Sheet form window:K39:12
+		$WindowType_i:=Resizable sheet window:K34:16
 		  //$WindowType_i:=Plain form window
 	End if 
 	
@@ -90,15 +100,18 @@ End if
 
 $Form:=New object:C1471(\
 "NewRecord";False:C215;\
-"SearchDialog";False:C215)
+"SearchDialog";False:C215;\
+"TypeAheadString";"";\
+"SortedHeader";"";\
+"SortDirection";0)
 
-DIALOG:C40("Fnd_slct")
+DIALOG:C40("Fnd_slct";$Form)
 
 Case of 
 	: (OK=1)
 		$SelectedRow_i:=Find in array:C230(SLCT_ListBox_ab;True:C214)
-		GOTO RECORD:C242(SLCT_Table_ptr->;SLCT_Index_ai{$SelectedRow_i})
-		$0:=Record number:C243(SLCT_Table_ptr->)
+		GOTO RECORD:C242((Slct.tablePointer)->;SLCT_Index_ai{$SelectedRow_i})
+		$0:=Record number:C243((Slct.tablePointer)->)
 		
 	: ($Form.NewRecord)
 		$0:=New record:K29:1
@@ -107,8 +120,6 @@ Case of
 		$0:=No current record:K29:2
 		
 End case 
-
-
 
 C_PICTURE:C286($Blank_pic)
 Slct.IconPicture:=$Blank_pic

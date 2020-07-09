@@ -21,9 +21,9 @@ C_BOOLEAN:C305($2)
 C_LONGINT:C283($BitToSet_i)
 
 If (False:C215)
-	C_BOOLEAN:C305(SLCT_Button ;$0;$2)
+	C_BOOLEAN:C305(SLCT_Button ;$0)
 	C_TEXT:C284(SLCT_Button ;$1)
-	
+	C_BOOLEAN:C305(SLCT_Button ;$2)
 End if 
 
 If ($1="New")

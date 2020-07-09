@@ -42,11 +42,11 @@ End if
 If (Length:C16($Exception_t)=0) & ($ParameterCount_i>1)
 	Case of 
 		: ($2="Empty") | ($2="")
-			REDUCE SELECTION:C351(SLCT_Table_ptr->;0)
+			REDUCE SELECTION:C351((Slct.tablePointer)->;0)
 		: ($2="Current") | ($2="")
 			  //  Do nothing
 		: ($2="All")
-			ALL RECORDS:C47(SLCT_Table_ptr->)
+			ALL RECORDS:C47((Slct.tablePointer)->)
 		Else 
 			$errorMethod_t:=Method called on error:C704
 			ON ERR CALL:C155("SLCT_DummyMethod")
@@ -83,6 +83,7 @@ If (Length:C16($Exception_t)=0)
 	
 	SLCT_LoadArrays 
 	$0:=SLCT_Dialog 
+	
 	SLCT_Unload   //  Free up memory
 Else 
 	

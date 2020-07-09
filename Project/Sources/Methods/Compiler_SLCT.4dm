@@ -18,39 +18,23 @@
   //C_BOOLEAN(<>SLCT_Initialized_b)
 If (False:C215)
 	
-	ARRAY TEXT:C222(<>slct_iconPaths_at;0)
-	ARRAY PICTURE:C279(<>slct_icons_apic;0)
+	ARRAY TEXT:C222(<>SLCT_IconPaths_at;0)
+	ARRAY PICTURE:C279(<>SLCT_Icons_apic;0)
 	
 End if 
 
 
-If (Slct.Initialised=Null:C1517)
+If (Slct.initialised=Null:C1517)
 	
-	C_OBJECT:C1216(Slct)
-	
-	
-	
-	
-	
-	  //C_TEXT(Form.TypeAheadString)
-	C_LONGINT:C283(SLCT_WindowPos_i;SLCT_WindowType_i)
-	
-	C_POINTER:C301(SLCT_Table_ptr;SLCT_ChildTable_ptr)
-	C_TEXT:C284(SLCT_Text1_t;SLCT_Text2_t)
+	C_OBJECT:C1216(Slct;slctConfig)
 	
 	ARRAY TEXT:C222(SLCT_Format_at;0)
 	
 	ARRAY POINTER:C280(SLCT_Fields_aptr;0)
 	ARRAY POINTER:C280(SLCT_Arrays_aptr;0)
-	ARRAY POINTER:C280(SLCT_ColHeaders_aptr;0)
+	
 	ARRAY TEXT:C222(SLCT_ColumnNames_at;0)
 	ARRAY TEXT:C222(SLCT_HeaderNames_at;0)
-	
-	C_LONGINT:C283(SLCT_Button_i;SLCT_SizeWindow_Bttn_i;SLCT_Size_CopyButton_i)
-	C_LONGINT:C283(SLCT_EscButton_i;SLCT_RetButton_i)
-	C_LONGINT:C283(SLCT_CancelButton_i;SLCT_ChooseButton_i)
-	C_LONGINT:C283(SLCT_NewButton_i;SLCT_FindButton_i)
-	  //C_LONGINT(SLCT_TypeAhead Bttn_i)
 	
 	ARRAY TEXT:C222(SLCT_Text_at1;0)
 	ARRAY TEXT:C222(SLCT_Text_at2;0)
@@ -82,11 +66,6 @@ If (Slct.Initialised=Null:C1517)
 	ARRAY LONGINT:C221(SLCT_Index_ai;0)
 	ARRAY BOOLEAN:C223(SLCT_ListBox_ab;0)
 	
-	C_LONGINT:C283(SLCT_Header_1;SLCT_Header_2;SLCT_Header_3;SLCT_Header_4;SLCT_Header_5;SLCT_Header_6;SLCT_Header_7;SLCT_Header_8;SLCT_Header_9;SLCT_Header_10;SLCT_Header_11;SLCT_Header_12;SLCT_Header_13;SLCT_Header_14;SLCT_Header_15;SLCT_Header_16;SLCT_Header_17;SLCT_Header_18;SLCT_Header_19;SLCT_Header_20;SLCT_Header_21;SLCT_Header_22)
-	
-	C_LONGINT:C283(SLCT_MssgRecordLimit_i)
-	C_TEXT:C284(SLCT_MssgText_t;SLCT_Widths_t)
-	
 	ARRAY LONGINT:C221(SLCT_SortArray_ai;0)
 	
 	ARRAY LONGINT:C221(SLCT_RowControl_ai;0)
@@ -96,6 +75,11 @@ If (Slct.Initialised=Null:C1517)
 End if 
 
 If (False:C215)
+	C_OBJECT:C1216(SLCT_WindowGeometry_Get ;$0)
+	C_OBJECT:C1216(SLCT_WindowGeometry_Set ;$1)
+	
+	C_OBJECT:C1216(SLCT_Configuration ;$0;$1)
+	
 	C_LONGINT:C283(SLCT_Message ;$1;$2;$0)
 	C_TEXT:C284(SLCT_Message ;$3)
 	

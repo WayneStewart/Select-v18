@@ -15,20 +15,18 @@ End if
 
   // ----------------------------------------------------
 
-SLCT_Init 
 
+SLCT_Init 
 
 $StackSize_i:=0
 
 If (Count parameters:C259=1)
 	
 	READ ONLY:C145(*)
-	
 	$WindowID_i:=Open form window:C675("TestForm";Plain form window:K39:10;Horizontally centered:K39:1;Vertically centered:K39:4;*)
 	
-	
 	ALL RECORDS:C47([People:1])
-	DIALOG:C40("TestForm")
+	DIALOG:C40("TestForm";New object:C1471("columns";Null:C1517))
 	CLOSE WINDOW:C154($WindowID_i)
 	
 Else 

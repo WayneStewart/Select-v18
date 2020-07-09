@@ -26,11 +26,11 @@ C_TEXT:C284($1;$0)
 SLCT_Init 
 
 If (Count parameters:C259=1)
-	SLCT.IconName:=$1
+	Slct.iconName:=$1
 End if 
 
-If (Length:C16(SLCT.IconName)=0)  //  In case this is blank
-	SLCT.IconName:=SLCT Question Icon
+If (Length:C16(Slct.iconName)=0)  //  In case this is blank
+	Slct.iconName:=SLCT Question Icon
 End if 
 
-$0:=SLCT.IconName
+$0:=Slct.iconName

@@ -18,8 +18,8 @@
   //C_BOOLEAN(<>SLCT_Initialized_b)
 If (False:C215)
 	
-	ARRAY TEXT:C222(<>SLCT_IconPaths_at;0)
-	ARRAY PICTURE:C279(<>SLCT_Icons_apic;0)
+	ARRAY TEXT:C222(<>slct_iconPaths_at;0)
+	ARRAY PICTURE:C279(<>slct_icons_apic;0)
 	
 End if 
 

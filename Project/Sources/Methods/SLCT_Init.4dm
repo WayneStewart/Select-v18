@@ -16,10 +16,10 @@ C_LONGINT:C283($LoopCounter_i;$NumberOfTables_i;$InnerLoopCounter_i;$WindowID_i)
   // ----------------------------------------------------
 
 
-If (Storage:C1525.appl.Initialised=Null:C1517)
+If (Storage:C1525.appl.initialised=Null:C1517)
 	
 	Use (Storage:C1525)
-		Storage:C1525.appl:=New shared object:C1526("Initialised";True:C214;"Version";"17.0")
+		Storage:C1525.appl:=New shared object:C1526("initialised";True:C214;"Version";"17.0")
 		
 		Storage:C1525.k:=New shared object:C1526(\
 			"maxColumns";22)
@@ -34,25 +34,31 @@ If (Storage:C1525.appl.Initialised=Null:C1517)
 	SLCT_RunningInFoundation (Find in array:C230($Components_at;"Foundation@")>0)
 	
 	  // These are the only IP vars used in component
-	ARRAY TEXT:C222(<>SLCT_IconPaths_at;0)
-	ARRAY PICTURE:C279(<>SLCT_Icons_apic;0)
+	ARRAY TEXT:C222(<>slct_iconPaths_at;0)
+	ARRAY PICTURE:C279(<>slct_icons_apic;0)
 	
 	
 End if 
 
-If (Slct.Initialised=Null:C1517)
+If (Slct.initialised=Null:C1517)
 	
 	Compiler_SLCT 
 	
-	SLCT:=New object:C1471("Initialised";True:C214)
+	SLCT:=New object:C1471
+	
+	Slct.initialised:=True:C214
+	Slct.hideControls:=True:C214
+	Slct.configuration:=New object:C1471
+	Slct.HorizontalScrollBar:=False:C215
+	Slct.windowWidth:=0  // This will force default size
+	Slct.windowHeight:=0  //  when tested later
+	slct.buttonFlags:=0
+	
+	
 	
 	ARRAY TEXT:C222(SLCT_Format_at;Storage:C1525.k.maxColumns)
 	ARRAY TEXT:C222(SLCT_HeaderTitles_at;Storage:C1525.k.maxColumns)
 	
 	
-	SLCT_HorizontalScrollBar (False:C215)
-	SLCT_WindowDimensions (0;0)  // This will force default size
-	
-	SLCT.Initialised:=True:C214
 	
 End if 

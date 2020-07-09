@@ -24,9 +24,11 @@ End if
 
 SLCT_Init 
 
-C_OBJECT:C1216($Form)
+C_OBJECT:C1216($Form;$Config_o)
 
 $0:=No current record:K29:2
+
+$Config_o:=SLCT_Configuration 
 
 
 If (Slct.windowWidth=Null:C1517)
@@ -105,6 +107,8 @@ Case of
 		$0:=No current record:K29:2
 		
 End case 
+
+
 
 C_PICTURE:C286($Blank_pic)
 Slct.IconPicture:=$Blank_pic

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
-<base name="Select" uuid="EAB434FFD8564A718DFBB532DE981D64" collation_locale="fr">
+<base name="Select v18" uuid="EAB434FFD8564A718DFBB532DE981D64" collation_locale="fr">
 	<schema name="DEFAULT_SCHEMA"/>
 	<table name="People" uuid="7AD1B60593F24BF1819874640309820F" id="1" leave_tag_on_delete="true">
 		<field name="id" uuid="BA4B7C3C351A460F8D57035D40F6441A" type="5" unique="true" autosequence="true" not_null="true" id="1"/>

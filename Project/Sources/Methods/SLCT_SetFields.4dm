@@ -25,6 +25,9 @@ C_BOOLEAN:C305($FoundAnAvailArray_b;$SLCT_NoField_b)
   //    if no fields are specified then the 2nd & 3rd field will be displayed.
 
   // ----------------------------------------------------
+If (False:C215)
+	SLCT_SetFields 
+End if 
 
 SLCT_Init 
 
@@ -53,7 +56,6 @@ If (Length:C16($ErrorMssg_t)=0)
 	  //ARRAY LONGINT($OrderOfArrays_ai;◊SLCT_MaxColumns_i)
 	ARRAY POINTER:C280(SLCT_Fields_aptr;$NumberOfColumns_i)
 	ARRAY POINTER:C280(SLCT_Arrays_aptr;$NumberOfColumns_i)
-	ARRAY POINTER:C280(SLCT_ColHeaders_aptr;$NumberOfColumns_i)
 	ARRAY TEXT:C222(SLCT_ColumnNames_at;$NumberOfColumns_i)
 	ARRAY TEXT:C222(SLCT_HeaderNames_at;$NumberOfColumns_i)
 	
@@ -67,9 +69,8 @@ If (Length:C16($ErrorMssg_t)=0)
 	End for 
 	
 	SLCT_Arrays_aptr{1}:=->SLCT_Index_ai
-	SLCT_ColHeaders_aptr{1}:=SLCT_HeaderPointerFromIndex   //  The index header doesn't need one
 	SLCT_ColumnNames_at{1}:=SLCT_VariableName (SLCT_Arrays_aptr{1})
-	SLCT_HeaderNames_at{1}:=SLCT_VariableName (SLCT_ColHeaders_aptr{1})
+	SLCT_HeaderNames_at{1}:="SLCT_Header_22"
 	
 	For ($CurrentColumn_i;2;$NumberOfParameters_i)
 		SLCT_Fields_aptr{$CurrentColumn_i}:=${$CurrentColumn_i}
@@ -108,9 +109,8 @@ If (Length:C16($ErrorMssg_t)=0)
 		If ($FoundAnAvailArray_b)
 			$PointerToAllArrays_aptr{$indexPosition_i}:=SLCT_ArrayPointerFromIndex ($indexPosition_i)  //  This will stop it being reallocated
 			SLCT_Arrays_aptr{$CurrentColumn_i}:=SLCT_ArrayPointerFromIndex ($indexPosition_i)
-			SLCT_ColHeaders_aptr{$CurrentColumn_i}:=SLCT_HeaderPointerFromIndex ($indexPosition_i)
 			SLCT_ColumnNames_at{$CurrentColumn_i}:=SLCT_VariableName (SLCT_Arrays_aptr{$CurrentColumn_i})
-			SLCT_HeaderNames_at{$CurrentColumn_i}:=SLCT_VariableName (SLCT_ColHeaders_aptr{$CurrentColumn_i})
+			SLCT_HeaderNames_at{$CurrentColumn_i}:="SLCT_Header_"+String:C10($indexPosition_i)
 			
 		Else 
 			If (($FieldType_i=Is alpha field:K8:1) | ($FieldType_i=Is text:K8:3))

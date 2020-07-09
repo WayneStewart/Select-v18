@@ -1,9 +1,11 @@
 //%attributes = {"invisible":true,"shared":true}
   // ----------------------------------------------------
-  // Project Method: SLCT_Message
+  // Project Method: 
+If (False:C215)
+	SLCT_Message 
+End if 
+
   // Global and IP variables accessed:     None Used
-C_LONGINT:C283(SLCT_MssgRecordLimit_i)
-C_TEXT:C284(SLCT_MssgText_t)
 
   // Method Type:    Protected
 
@@ -29,7 +31,7 @@ $ApplicationType_i:=Application type:C494
 If ($NumberOfParameters_i=0)  //  We are displaying the message
 	
 	
-	If (Records in selection:C76(SLCT_Table_ptr->)>=SLCT_MssgRecordLimit_i)
+	If (Records in selection:C76((Slct.tablePointer)->)>=Slct.messageRecordLimit)
 		
 		$ProgressBar_i:=Progress New 
 		
@@ -44,11 +46,11 @@ If ($NumberOfParameters_i=0)  //  We are displaying the message
 Else 
 	Case of 
 		: (($1=4D Remote mode:K5:5) & ($ApplicationType_i=4D Remote mode:K5:5))  //  We are specifying 4D Remote Mode & we are in 4D Remote Mode
-			SLCT_MssgRecordLimit_i:=$2
-			SLCT_MssgText_t:=$3
+			Slct.messageRecordLimit:=$2
+			Slct.messageText:=$3
 		: (($1#4D Remote mode:K5:5) & ($ApplicationType_i#4D Remote mode:K5:5))  //  We are specifying not 4D Remote Mode & we are not in 4D Remote Mode
-			SLCT_MssgRecordLimit_i:=$2
-			SLCT_MssgText_t:=$3
+			Slct.messageRecordLimit:=$2
+			Slct.messageText:=$3
 		Else 
 			  //  ignore
 	End case 

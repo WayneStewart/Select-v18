@@ -36,7 +36,6 @@
 					"left": 10,
 					"width": 200,
 					"height": 20,
-					"dataSource": "SLCT_CancelButton_i",
 					"rowCount": 15,
 					"picture": "/RESOURCES/Images/Barbers.png",
 					"loopBackToFirstFrame": true,

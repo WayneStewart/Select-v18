@@ -22,7 +22,7 @@ C_LONGINT:C283($Left_i;$top_i;$right_i;$bottom_i;$Width_i;$Height_i;$WidthViaCol
   // ----------------------------------------------------
 
 
-$TableNumber_i:=Table:C252(SLCT_Table_ptr)
+$TableNumber_i:=Table:C252(Slct.tablePointer)
 $Command_t:="SLCT_Widths ("
 $NumberofColumns_i:=Size of array:C274(SLCT_Fields_aptr)
 $TotalWidth_i:=0

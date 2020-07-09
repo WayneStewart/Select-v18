@@ -25,10 +25,11 @@ End if
 
 Case of 
 	: ($Index_i=0)
-		$0:=->SLCT_Header_22
 		
+		$0:=OBJECT Get pointer:C1124(Object named:K67:5;"SLCT_Header_22")
 	Else 
-		$0:=Get pointer:C304("SLCT_Header_"+String:C10($Index_i))
+		$0:=OBJECT Get pointer:C1124(Object named:K67:5;"SLCT_Header_"+String:C10($Index_i))
+		  //$0:=Get pointer("SLCT_Header_"+String($Index_i))
 		
 End case 
 

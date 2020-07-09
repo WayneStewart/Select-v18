@@ -12,20 +12,11 @@ C_PICTURE:C286($Temp_pic)
   // ----------------------------------------------------
 
 
-slct:=New object:C1471
-  //SLCT_IconPicture_pic:=$Temp_pic
-SLCT.IconName:=""
-  //SLCT.Initialised:=False
-  //OB REMOVE(SLCT;"Initialised"
-SLCT_Text1_t:=""
-SLCT_Text2_t:=""
-Form:C1466.TypeAheadString:=""
-SLCT_MssgText_t:=""
-SLCT_Widths_t:=""
+SLCT_Reset 
 
 ARRAY POINTER:C280(SLCT_Fields_aptr;0)
 ARRAY POINTER:C280(SLCT_Arrays_aptr;0)
-ARRAY POINTER:C280(SLCT_ColHeaders_aptr;0)
+
 ARRAY TEXT:C222(SLCT_ColumnNames_at;0)
 ARRAY TEXT:C222(SLCT_HeaderNames_at;0)
 

@@ -20,14 +20,14 @@ C_TEXT:C284($0)
 C_LONGINT:C283($LoopCounter_i;$NumberOfParameters_i;$TableNumber_i;$CumulativeTotal_i;$NumberOfColumns_i;$AverageWidth_i;$Remainder_i)
 C_TEXT:C284($ColumnWidths_t)
 $NumberOfParameters_i:=Count parameters:C259
-$TableNumber_i:=Table:C252(SLCT_Table_ptr)
+$TableNumber_i:=Table:C252(Slct.tablePointer)
 
 $NumberOfColumns_i:=Size of array:C274(SLCT_Fields_aptr)-1  // the index array doesn't count
 
 
 Case of 
 	: ($NumberOfParameters_i=0)  //  Just return the text object with the column widths
-		$ColumnWidths_t:=SLCT_Widths_t
+		$ColumnWidths_t:=Slct.widths
 		
 	: ($1=-1)  //  Even lengths
 		$ColumnWidths_t:=""
@@ -39,7 +39,7 @@ Case of
 			$CumulativeTotal_i:=$CumulativeTotal_i+${$LoopCounter_i}
 			$ColumnWidths_t:=$ColumnWidths_t+String:C10(${$LoopCounter_i};"0000")
 		End for 
-		SLCT_Widths_t:=$ColumnWidths_t
+		Slct.widths:=$ColumnWidths_t
 		
 End case 
 
@@ -59,8 +59,8 @@ If (Length:C16($ColumnWidths_t)=0)  //  This means we need equal lengths
 	End for 
 	$ColumnWidths_t:=$ColumnWidths_t+String:C10($AverageWidth_i+$Remainder_i;"0000")
 	
-	SLCT_Widths_t:=$ColumnWidths_t
+	Slct.widths:=$ColumnWidths_t
 End if 
 
 
-$0:=SLCT_Widths_t
+$0:=Slct.widths

@@ -16,10 +16,10 @@ C_LONGINT:C283($LoopCounter_i;$NumberOfTables_i;$InnerLoopCounter_i;$WindowID_i)
   // ----------------------------------------------------
 
 
-If (Storage:C1525.appl.Initialised=Null:C1517)
+If (Storage:C1525.appl.initialised=Null:C1517)
 	
 	Use (Storage:C1525)
-		Storage:C1525.appl:=New shared object:C1526("Initialised";True:C214;"Version";"17.0")
+		Storage:C1525.appl:=New shared object:C1526("initialised";True:C214;"Version";"17.0")
 		
 		Storage:C1525.k:=New shared object:C1526(\
 			"maxColumns";22)
@@ -40,19 +40,15 @@ If (Storage:C1525.appl.Initialised=Null:C1517)
 	
 End if 
 
-If (Slct.Initialised=Null:C1517)
+If (Slct.initialised=Null:C1517)
 	
 	Compiler_SLCT 
 	
-	SLCT:=New object:C1471("Initialised";True:C214)
+	Slct_Reset 
 	
 	ARRAY TEXT:C222(SLCT_Format_at;Storage:C1525.k.maxColumns)
 	ARRAY TEXT:C222(SLCT_HeaderTitles_at;Storage:C1525.k.maxColumns)
 	
 	
-	SLCT_HorizontalScrollBar (False:C215)
-	SLCT_WindowDimensions (0;0)  // This will force default size
-	
-	SLCT.Initialised:=True:C214
 	
 End if 

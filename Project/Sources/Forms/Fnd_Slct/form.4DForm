@@ -9,21 +9,10 @@
 	"markerFooter": 240,
 	"events": [
 		"onLoad",
-		"onValidate",
 		"onClick",
-		"onOutsideCall",
-		"onDoubleClick",
-		"onDrop",
-		"onMenuSelect",
-		"onPluginArea",
-		"onDataChange",
-		"onDragOver",
+		"onUnload",
 		"onTimer",
-		"onAfterKeystroke",
-		"onAfterEdit",
-		"onBeginDragOver",
-		"onBoundVariableChange",
-		"onPageChange"
+		"onAfterKeystroke"
 	],
 	"method": "method.4dm",
 	"pageFormat": {
@@ -67,7 +56,6 @@
 					"height": 22,
 					"sizingX": "move",
 					"sizingY": "move",
-					"dataSource": "SLCT_CancelButton_i",
 					"action": "cancel",
 					"shortcutKey": ".",
 					"shortcutAccel": true,
@@ -92,20 +80,19 @@
 						"onClick"
 					]
 				},
-				"<>SLCT_FindButton_i": {
+				"SLCT_FindButton_i": {
 					"type": "button",
 					"top": 310,
 					"left": 110,
 					"width": 78,
 					"height": 22,
 					"sizingY": "move",
-					"dataSource": "SLCT_FindButton_i",
 					"shortcutKey": "f",
 					"shortcutAccel": true,
 					"text": ":xliff:MtB_Slct_Find",
 					"stroke": "#000000",
 					"focusable": false,
-					"method": "ObjectMethods/%3C%3ESLCT_FindButton_i.4dm",
+					"method": "ObjectMethods/SLCT_FindButton_i.4dm",
 					"events": [
 						"onClick"
 					]
@@ -118,7 +105,6 @@
 					"height": 22,
 					"sizingX": "move",
 					"sizingY": "move",
-					"dataSource": "SLCT_ChooseButton_i",
 					"action": "accept",
 					"shortcutKey": "[Enter]",
 					"text": ":xliff:MtB_Slct_Choose",
@@ -134,7 +120,6 @@
 					"width": 110,
 					"height": 20,
 					"sizingY": "move",
-					"dataSource": "SLCT_EscButton_i",
 					"action": "cancel",
 					"shortcutKey": "[Esc]",
 					"text": "Trap Escape",
@@ -150,7 +135,6 @@
 					"width": 110,
 					"height": 20,
 					"sizingY": "move",
-					"dataSource": "SLCT_RetButton_i",
 					"action": "accept",
 					"shortcutKey": "[Return]",
 					"text": "Trap Return",
@@ -167,7 +151,7 @@
 					"width": 433,
 					"height": 17,
 					"sizingX": "grow",
-					"dataSource": "SLCT_Text1_t",
+					"dataSource": "Slct.mainText",
 					"stroke": "#000000",
 					"focusable": false,
 					"fill": "transparent",
@@ -181,7 +165,7 @@
 					"width": 633,
 					"height": 28,
 					"sizingX": "grow",
-					"dataSource": "SLCT_Text2_t",
+					"dataSource": "Slct.explanatoryText",
 					"stroke": "#000000",
 					"fontTheme": "additional",
 					"focusable": false,
@@ -197,7 +181,6 @@
 					"width": 112,
 					"height": 22,
 					"sizingY": "move",
-					"dataSource": "SLCT_Size_CopyButton_i",
 					"text": ":xliff:MtB_Slct_Copy",
 					"focusable": false,
 					"method": "ObjectMethods/SLCT_Size_CopyButton_i.4dm",
@@ -224,8 +207,6 @@
 					"verticalLineStroke": "transparent",
 					"stroke": "#000000",
 					"fill": "#FFFFFF",
-					"fontFamily": "Lucida Grande",
-					"fontSize": 13,
 					"method": "ObjectMethods/SLCT_ListBox_ab.4dm",
 					"events": [
 						"onLoad",
@@ -251,16 +232,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_1",
-								"dataSource": "SLCT_Header_1",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer1",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -281,16 +259,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_2",
-								"dataSource": "SLCT_Header_2",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer2",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -311,16 +286,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_3",
-								"dataSource": "SLCT_Header_3",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer3",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -341,16 +313,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_4",
-								"dataSource": "SLCT_Header_4",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer4",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -371,16 +340,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_5",
-								"dataSource": "SLCT_Header_5",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer5",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -401,16 +367,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_6",
-								"dataSource": "SLCT_Header_6",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer6",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -431,16 +394,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_7",
-								"dataSource": "SLCT_Header_7",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer7",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -461,16 +421,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_8",
-								"dataSource": "SLCT_Header_8",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer8",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -491,16 +448,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_9",
-								"dataSource": "SLCT_Header_9",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer9",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -521,16 +475,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_10",
-								"dataSource": "SLCT_Header_10",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer10",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -551,16 +502,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_11",
-								"dataSource": "SLCT_Header_11",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer11",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -581,16 +529,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_12",
-								"dataSource": "SLCT_Header_12",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer12",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -611,16 +556,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_13",
-								"dataSource": "SLCT_Header_13",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer13",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -641,16 +583,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_14",
-								"dataSource": "SLCT_Header_14",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer14",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -671,16 +610,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_15",
-								"dataSource": "SLCT_Header_15",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer15",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -702,16 +638,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_16",
-								"dataSource": "SLCT_Header_16",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer16",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -733,16 +666,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_17",
-								"dataSource": "SLCT_Header_17",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer17",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -764,16 +694,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_18",
-								"dataSource": "SLCT_Header_18",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer18",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -788,24 +715,19 @@
 							"stroke": "#000000",
 							"fill": "#FFFFFF",
 							"alternateFill": "#EDF3FE",
-							"fontFamily": "Lucida Grande",
-							"fontSize": 12,
 							"events": [
 								"onClick",
 								"onDataChange"
 							],
 							"header": {
 								"name": "SLCT_Header_19",
-								"dataSource": "SLCT_Header_19",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer19",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -820,24 +742,19 @@
 							"stroke": "#000000",
 							"fill": "#FFFFFF",
 							"alternateFill": "#EDF3FE",
-							"fontFamily": "Lucida Grande",
-							"fontSize": 12,
 							"events": [
 								"onClick",
 								"onDataChange"
 							],
 							"header": {
 								"name": "SLCT_Header_20",
-								"dataSource": "SLCT_Header_20",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer20",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -852,24 +769,19 @@
 							"stroke": "#000000",
 							"fill": "#FFFFFF",
 							"alternateFill": "#EDF3FE",
-							"fontFamily": "Lucida Grande",
-							"fontSize": 12,
 							"events": [
 								"onClick",
 								"onDataChange"
 							],
 							"header": {
 								"name": "SLCT_Header_21",
-								"dataSource": "SLCT_Header_21",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer21",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						},
 						{
@@ -892,16 +804,13 @@
 							],
 							"header": {
 								"name": "SLCT_Header_22",
-								"dataSource": "SLCT_Header_22",
 								"stroke": "#000000"
 							},
 							"footer": {
 								"name": "Footer22",
 								"timeFormat": "hh_mm_ss",
 								"stroke": "#000000",
-								"fill": "#FFFFFF",
-								"fontFamily": "Lucida Grande",
-								"fontSize": 13
+								"fill": "#FFFFFF"
 							}
 						}
 					]
@@ -1481,7 +1390,7 @@
 			"entryOrder": [
 				"SLCT_CancelButton_i",
 				"SLCT_NewButton_i",
-				"<>SLCT_FindButton_i",
+				"SLCT_FindButton_i",
 				"SLCT_ChooseButton_i",
 				"SLCT_EscButton_i",
 				"SLCT_RetButton_i",

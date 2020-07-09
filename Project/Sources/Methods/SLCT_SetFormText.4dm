@@ -21,7 +21,7 @@
   //  SLCT_MssgText_t  
   //  SLCT_Text1_t
   //  SLCT_Text2_t
-  //  SLCT_Table_ptr
+  //  Slct.tablePointer
 
   // Method Type:    Protected
 
@@ -48,37 +48,37 @@ SLCT_Init
 $NumberOfParameters_i:=Count parameters:C259
 
 If ($NumberOfParameters_i=2)  //  This is the easiest. do it first
-	SLCT_Text1_t:=$1
-	SLCT_Text2_t:=$2
+	Slct.mainText:=$1
+	Slct.explanatoryText:=$2
 	
 Else 
 	If (SLCT_RunningInFoundation )
 		EXECUTE METHOD:C1007("fnd_gen_currentTable";$ChildTable_ptr)
 		SLCT_ChildTable ($ChildTable_ptr)
-		EXECUTE METHOD:C1007("Fnd_VS_TableName";$SelectTable_t;SLCT_Table_ptr)
-		EXECUTE METHOD:C1007("Fnd_VS_TableName";$CurrentTable_t;SLCT_ChildTable_ptr)
+		EXECUTE METHOD:C1007("Fnd_VS_TableName";$SelectTable_t;Slct.tablePointer)
+		EXECUTE METHOD:C1007("Fnd_VS_TableName";$CurrentTable_t;Slct.childPointer)
 	Else 
 		SLCT_ChildTable (Current form table:C627)
-		$SelectTable_t:=Table name:C256(SLCT_Table_ptr)
-		$CurrentTable_t:=Table name:C256(SLCT_ChildTable_ptr)
+		$SelectTable_t:=Table name:C256(Slct.tablePointer)
+		$CurrentTable_t:=Table name:C256(Slct.childPointer)
 	End if 
 	
 	Case of 
 		: ($NumberOfParameters_i=0)
-			SLCT_Text1_t:=SLCT_GetIndexedString ("MtB_Slct_MainText";Lowercase:C14($SelectTable_t))
-			SLCT_Text2_t:=SLCT_GetIndexedString ("MtB_Slct_ExplanatoryText";Lowercase:C14($SelectTable_t);Lowercase:C14($CurrentTable_t))
+			Slct.mainText:=SLCT_GetIndexedString ("MtB_Slct_MainText";Lowercase:C14($SelectTable_t))
+			Slct.explanatoryText:=SLCT_GetIndexedString ("MtB_Slct_ExplanatoryText";Lowercase:C14($SelectTable_t);Lowercase:C14($CurrentTable_t))
 			
 		: ($NumberOfParameters_i=1)
-			SLCT_Text1_t:=$1
-			SLCT_Text2_t:=SLCT_GetIndexedString ("MtB_Slct_ExplanatoryText";Lowercase:C14($SelectTable_t);Lowercase:C14($CurrentTable_t))
+			Slct.mainText:=$1
+			Slct.explanatoryText:=SLCT_GetIndexedString ("MtB_Slct_ExplanatoryText";Lowercase:C14($SelectTable_t);Lowercase:C14($CurrentTable_t))
 			
 	End case 
 End if 
 
-If (Length:C16(SLCT_Text1_t)>0)
-	SLCT_Text1_t[[1]]:=Uppercase:C13(SLCT_Text1_t)
+If (Length:C16(Slct.mainText)>0)
+	Slct.mainText[[1]]:=Uppercase:C13(Slct.mainText)
 End if 
 
-If (Length:C16(SLCT_Text2_t)>0)
-	SLCT_Text2_t[[1]]:=Uppercase:C13(SLCT_Text2_t)
+If (Length:C16(Slct.explanatoryText)>0)
+	Slct.explanatoryText[[1]]:=Uppercase:C13(Slct.explanatoryText)
 End if 

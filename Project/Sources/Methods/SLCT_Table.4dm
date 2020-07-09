@@ -1,23 +1,29 @@
 //%attributes = {"invisible":true}
   // ----------------------------------------------------
-  // Project Method: SLCT_Table
+  // Project Method: SLCT_Table {(->SLCT Table)}--> Pointer
 
-  // Method Type:     Private
+  // Set the table pointer
 
-  // Parameters: 
-C_POINTER:C301($1;SLCT_Table_ptr)
+  // Access: Private
 
-  // Local Variables:      None Used
+  // Parameters:
+  //   $1 : Pointer : The SLCT Table Pointer
 
-  // Returns: 
-C_POINTER:C301($0)
+  // Returns:
+  //   $0 : Pointer : The SLCT Table Pointer
 
-  // Created by Wayne Stewart (16/04/2004)
-  //     waynestewart@mac.com
+  // Created by Wayne Stewart (2020-06-30T14:00:00Z)
+  //     wayne@4dsupport.guru
   // ----------------------------------------------------
 
-If (Count parameters:C259=1)
-	SLCT_Table_ptr:=$1
+C_POINTER:C301($0;$1)
+
+If (False:C215)
+	C_POINTER:C301(SLCT_Table ;$0;$1)
 End if 
 
-$0:=SLCT_Table_ptr
+If (Count parameters:C259=1)
+	Slct.tablePointer:=$1
+End if 
+
+$0:=Slct.tablePointer

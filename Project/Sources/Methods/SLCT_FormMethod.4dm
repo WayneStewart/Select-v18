@@ -46,7 +46,10 @@ Case of
 		  //ACCEPT
 		  //End if 
 		
+	: (Form event code:C388=On Unload:K2:2)
+		SLCT_StoreConfiguration 
+		
 End case 
 
 
-OBJECT SET ENABLED:C1123(SLCT_ChooseButton_i;(Find in array:C230(SLCT_ListBox_ab;True:C214)>-1))
+OBJECT SET ENABLED:C1123(*;"SLCT_ChooseButton_i";(Find in array:C230(SLCT_ListBox_ab;True:C214)>-1))

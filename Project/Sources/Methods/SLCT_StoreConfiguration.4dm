@@ -1,16 +1,14 @@
 //%attributes = {"invisible":true}
-  // ----------------------------------------------------
-  // Project Method: SLCT_SaveConfiguration
+// ----------------------------------------------------
+// Project Method: SLCT_SaveConfiguration
 
+// Examines the current listbiox state and stores that
 
+// Access: Private
 
-  // Examines the current listbiox state and stores that
-
-  // Access: Private
-
-  // Created by Wayne Stewart (2020-07-01T14:00:00Z)
-  //     wayne@4dsupport.guru
-  // ----------------------------------------------------
+// Created by Wayne Stewart (2020-07-01T14:00:00Z)
+//     wayne@4dsupport.guru
+// ----------------------------------------------------
 
 C_COLLECTION:C1488($Columns_c)
 C_LONGINT:C283($bottom_i;$CurrentColumn_i;$Left_i;$NumberofColumns_i;$right_i;$top_i;$TotalWidth_i)
@@ -28,7 +26,7 @@ ARRAY TEXT:C222($headerNames_at;0)
 
 
 If (False:C215)
-	SLCT_StoreConfiguration 
+	SLCT_StoreConfiguration
 End if 
 
 $Config_o:=New object:C1471
@@ -69,15 +67,15 @@ $Config_o.windowBottom:=$bottom_i
 
 slctConfig:=$Config_o
 
-  //SLCT_Widths (176;214;87;106;93)  //  TotalWidth: 676
-  //SLCT_WindowDimensions (716;450)  //  via columns
-  //SLCT_WindowDimensions (732;450)
+//SLCT_Widths (176;214;87;106;93)  //  TotalWidth: 676
+//SLCT_WindowDimensions (716;450)  //  via columns
+//SLCT_WindowDimensions (732;450)
 
-  // Columns
-  //   Column Order within listbox
-  //   Column Widths
-  //   Sort order of selection
+// Columns
+//   Column Order within listbox
+//   Column Widths
+//   Sort order of selection
 
-  //  Window
-  //    Dimensions
-  //    Position on screen
+//  Window
+//    Dimensions
+//    Position on screen

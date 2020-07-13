@@ -87,12 +87,11 @@ For ($ColumnNumber_i;1;$NumberOfColumns_i)
 		OBJECT SET VISIBLE:C603(*;$ColumnName_t;False:C215)
 		
 	Else 
-		If (Length:C16(SLCT_Format_at{$ColumnNumber_i})>0)
-			OBJECT SET FORMAT:C236(*;$ColumnName_t;SLCT_Format_at{$ColumnNumber_i})
+		If ($ColumnNumber_i<=Size of array:C274(SLCT_Format_at))  // Check the array element exists
+			If (Length:C16(SLCT_Format_at{$ColumnNumber_i})>0)
+				OBJECT SET FORMAT:C236(*;$ColumnName_t;SLCT_Format_at{$ColumnNumber_i})
+			End if 
 		End if 
-		
-		  // Modified by: Wayne Stewart (2/12/08)
-		  //  Alteration for v11 & possible no Foundation
 		
 		Case of 
 			: (Length:C16(SLCT_HeaderTitles_at{$ColumnNumber_i})>0)

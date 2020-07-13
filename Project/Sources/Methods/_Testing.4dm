@@ -1,2 +1,2 @@
 //%attributes = {}
-UTIL_WriteMethodComments   // ("SLCT_Icon@")
+SLCT_StoreConfiguration 
